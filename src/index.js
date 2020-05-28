@@ -1,8 +1,9 @@
-"use strict";
+import "./index.css";
+
 import Card from "./js/card.js";
 import Api from "./js/api.js";
 import CardList from "./js/cardList.js";
-import FormValidator from "./js/formValidator.js";
+import FormValidator from "./js/formValidation.js";
 import Popup from "./js/popup.js";
 import UserInfo from "./js/userInfo.js";
 

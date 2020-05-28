@@ -10,7 +10,11 @@
   <body>
     <div class="root">
       <header class="header root__section">
-        <img src="./images/logo.svg" alt="mesto logo" class="logo" />
+        <img
+          src="<%=require('./images/logo.svg').default%>"
+          alt="mesto logo"
+          class="logo"
+        />
       </header>
       <div class="profile root__section">
         <div class="user-info">
@@ -42,7 +46,11 @@
       </div>
       <div class="popup">
         <div class="popup__content">
-          <img src="./images/close.svg" alt="" class="popup__close" />
+          <img
+            src="<%=require('./images/close.svg').default%>"
+            alt=""
+            class="popup__close"
+          />
           <h3 class="popup__title">Новое место</h3>
           <form class="popup__form" name="new" novalidate>
             <div class="input-container">
@@ -82,7 +90,7 @@
       <div class="popup popup_edit">
         <div class="popup__content">
           <img
-            src="./images/close.svg"
+            src="<%=require('./images/close.svg').default%>"
             alt=""
             class="popup__close popup__close_edit"
           />
@@ -123,7 +131,7 @@
       <div class="popup popup_img">
         <div class="popup__content popup__content_image">
           <img
-            src="./images/close.svg"
+            src="<%=require('./images/close.svg').default%>"
             alt=""
             class="popup__close popup__img_close"
           />
@@ -133,7 +141,7 @@
       <div class="popup popup_avatar">
         <div class="popup__content">
           <img
-            src="./images/close.svg"
+            src="<%=require('./images/close.svg').default%>"
             alt=""
             class="popup__close popup__close_edit"
           />
