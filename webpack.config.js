@@ -40,7 +40,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(svg|png|jpg|gif|ico)$/,
+        test: /\.(svg|png|jpg|gif|ico)$/i,
         use: [
           {
             loader: "file-loader",
@@ -51,16 +51,16 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          "file-loader?name=./images/[name].[ext]",
-          {
-            loader: "image-webpack-loader",
-            options: {},
-          },
-        ],
-      },
+      // {
+      //   test: /\.(gif|png|jpe?g|svg)$/i,
+      //   use: [
+      //     "file-loader?name=./images/[name].[ext]",
+      //     {
+      //       loader: "image-webpack-loader",
+      //       options: {},
+      //     },
+      //   ],
+      // },
     ],
   },
   plugins: [
