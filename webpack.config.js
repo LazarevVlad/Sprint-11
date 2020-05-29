@@ -12,15 +12,18 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[chunkhash].js",
   },
+
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: { loader: "babel-loader" },
         exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           isDev ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
@@ -28,36 +31,35 @@ module.exports = {
         ],
       },
       {
-        test: /\.(eot|ttf|woff|woff2)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              esModule: false,
-              outputPath: "./vendor/fonts/",
-            },
-          },
-        ],
-      },
-      {
         test: /\.(svg|png|jpg|gif|ico)$/i,
         use: [
           {
             loader: "file-loader",
-            // options: {
-            //   esModule: false,
-            //   outputPath: "./images/",
-            // },
+          },
+        ],
+      },
+      {
+        test: /\.(ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "./vendor/fonts/",
+              esModule: false,
+            },
           },
         ],
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          "file-loader?name=./images/[name].[ext]",
           {
             loader: "image-webpack-loader",
-            options: {},
+            options: {
+              // name: "[path][chunkhash].[ext]",
+              // bypassOnDebug: true,
+              // disable: false,
+            },
           },
         ],
       },
