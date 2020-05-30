@@ -53,7 +53,6 @@ export default class FormValidator {
       const inputs = this.form.querySelectorAll("input");
       let isValid = true;
       inputs.forEach((input) => {
-        console.log(input);
         if (!this.checkInputValidity(input)) {
           isValid = false;
         }
