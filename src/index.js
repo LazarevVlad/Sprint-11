@@ -32,7 +32,10 @@ import UserInfo from "./js/userInfo.js";
 
   // const openImage = document.querySelector(".popup__content_image");
   const options = {
-    baseUrl: "https://praktikum.tk/cohort10",
+    baseUrl:
+      NODE_ENV === "development"
+        ? "http://praktikum.tk/cohort10"
+        : "https://praktikum.tk/cohort10",
     token: "623ffd9d-f498-4eee-8946-dfe944c061d5",
   };
 
