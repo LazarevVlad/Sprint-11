@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const isDev = process.env.NODE_ENV === "development";
+const styleLoader = isDev ? "style-loader" : MiniCssExtractPlugin.loader;
 
 module.exports = {
   entry: { main: "./src/index.js" },
@@ -25,16 +26,25 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
+          styleLoader,
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 2,
+            },
+          },
           "postcss-loader",
         ],
       },
       {
-        test: /\.(svg|png|jpg|gif|ico)$/i,
+        test: /\.(svg|png|jpe?g|gif|ico)$/i,
         use: [
           {
             loader: "file-loader",
+            options: {
+              esModule: false,
+              outputPath: "./images/",
+            },
           },
         ],
       },
@@ -56,9 +66,9 @@ module.exports = {
           {
             loader: "image-webpack-loader",
             options: {
-              // name: "[path][chunkhash].[ext]",
-              // bypassOnDebug: true,
-              // disable: false,
+              name: "[path][chunkhash].[ext]",
+              bypassOnDebug: true,
+              disable: false,
             },
           },
         ],
