@@ -66,20 +66,6 @@ module.exports = {
           },
         ],
       },
-
-      // {
-      //   test: /\.(gif|png|jpe?g|svg)$/i,
-      //   use: [
-      //     {
-      //       loader: "image-webpack-loader",
-      //       options: {
-      //         // name: "[path][chunkhash].[ext]",
-      //         // bypassOnDebug: true,
-      //         // disable: false,
-      //       },
-      //     },
-      //   ],
-      // },
     ],
   },
   plugins: [
