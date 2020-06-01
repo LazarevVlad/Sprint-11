@@ -37,14 +37,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.(svg|png|jpe?g|gif|ico)$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: "file-loader",
-            options: {
-              esModule: false,
-              outputPath: "./images/",
-            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif|ico|svg)$/,
+        use: [
+          "file-loader?name=./images/[name].[ext]",
+          {
+            loader: "image-webpack-loader",
+            options: {},
           },
         ],
       },
@@ -60,19 +66,20 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          {
-            loader: "image-webpack-loader",
-            options: {
-              name: "[path][chunkhash].[ext]",
-              bypassOnDebug: true,
-              disable: false,
-            },
-          },
-        ],
-      },
+
+      // {
+      //   test: /\.(gif|png|jpe?g|svg)$/i,
+      //   use: [
+      //     {
+      //       loader: "image-webpack-loader",
+      //       options: {
+      //         // name: "[path][chunkhash].[ext]",
+      //         // bypassOnDebug: true,
+      //         // disable: false,
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   plugins: [
