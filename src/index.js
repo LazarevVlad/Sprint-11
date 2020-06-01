@@ -9,12 +9,8 @@ import UserInfo from "./js/userInfo.js";
 
 (function () {
   // Переменные
-  // const popupImgOpen = document.querySelector(".popup__img-open");
   const list = document.querySelector(".places-list");
   const openForm = document.querySelector(".user-info__button");
-  // const closeForm = document.querySelector(".popup__close");
-  // const closeFormEdit = document.querySelector(".popup__close_edit ");
-  // const img = document.querySelector(".place-card__image");
   const root = document.querySelector(".root");
   const form = document.forms.new;
   const formButton = document.querySelector(".popup__button_type_new");
@@ -22,15 +18,9 @@ import UserInfo from "./js/userInfo.js";
   const editButton = document.querySelector(".popup__button_type_edit");
   const popupImg = document.querySelector(".popup_img");
   const userPhoto = document.querySelector(".user-info__photo");
-  // const userInfoName = document.querySelector(".user-info__name");
-  // const userInfoJob = document.querySelector(".user-info__job");
-  // const closeImage = document.querySelector(".popup__img_close");
   const formEdit = document.forms.edit;
   const formAvatar = document.forms.avatar;
   const formButtonAvatar = document.querySelector(".popup__button_type_avatar");
-  // const userAvatar = document.querySelector(".user-info__photo");
-
-  // const openImage = document.querySelector(".popup__content_image");
   const options = {
     baseUrl:
       NODE_ENV === "development"
