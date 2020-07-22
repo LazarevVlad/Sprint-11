@@ -1,5 +1,5 @@
 "use strict";
-class Card {
+export default class Card {
   constructor(cardData, openImageCallback, api) {
     this.cardData = cardData;
     this.openImageCallback = openImageCallback;
@@ -26,10 +26,6 @@ class Card {
              </div>
            </div>`
     );
-
-    // console.log(this.cardData.likes);
-    // console.log(this.cardData);
-
     this.card.querySelector(
       ".place-card__name"
     ).textContent = this.cardData.name;

@@ -1,13 +1,16 @@
-"use strict";
-// import { initialCards } from "./initialCards.js";
+import "./index.css";
+
+import Card from "./js/card.js";
+import Api from "./js/api.js";
+import CardList from "./js/cardList.js";
+import FormValidator from "./js/formValidation.js";
+import Popup from "./js/popup.js";
+import UserInfo from "./js/userInfo.js";
+
 (function () {
   // Переменные
-  // const popupImgOpen = document.querySelector(".popup__img-open");
   const list = document.querySelector(".places-list");
   const openForm = document.querySelector(".user-info__button");
-  // const closeForm = document.querySelector(".popup__close");
-  // const closeFormEdit = document.querySelector(".popup__close_edit ");
-  // const img = document.querySelector(".place-card__image");
   const root = document.querySelector(".root");
   const form = document.forms.new;
   const formButton = document.querySelector(".popup__button_type_new");
@@ -15,17 +18,14 @@
   const editButton = document.querySelector(".popup__button_type_edit");
   const popupImg = document.querySelector(".popup_img");
   const userPhoto = document.querySelector(".user-info__photo");
-  // const userInfoName = document.querySelector(".user-info__name");
-  // const userInfoJob = document.querySelector(".user-info__job");
-  // const closeImage = document.querySelector(".popup__img_close");
   const formEdit = document.forms.edit;
   const formAvatar = document.forms.avatar;
   const formButtonAvatar = document.querySelector(".popup__button_type_avatar");
-  // const userAvatar = document.querySelector(".user-info__photo");
-
-  // const openImage = document.querySelector(".popup__content_image");
   const options = {
-    baseUrl: "https://praktikum.tk/cohort10",
+    baseUrl:
+      NODE_ENV === "development"
+        ? "http://praktikum.tk/cohort10"
+        : "https://praktikum.tk/cohort10",
     token: "623ffd9d-f498-4eee-8946-dfe944c061d5",
   };
 
@@ -79,9 +79,6 @@
       });
   });
   //
-
-  // formButton.addEventListener("click", popup.close);
-  // editButton.addEventListener("click", popupEdit.close);
 
   const formNameEdit = formEdit.elements.name_edit;
   const formJob = formEdit.elements.job;
@@ -142,29 +139,3 @@
   checkFormEdit.setEventListeners();
   checkFormAvatar.setEventListeners();
 })();
-
-/*
-
-  Отлично, запросы на сервер выполняются. 
-  Но есть несколько замечаний
-
-  Надо исправить:
-  - обработка ошибок должна находится в самом конце обработки промиса, поэтому нужно                               (ИСПРАВИЛ)
-  убрать её из класса Api и повестить там где вызывается метод 
-  - все изменения на странице должны происходить только после ответа сервера, в том числе
-  закрытие попапа. Сейчас попап редактирования данных пользователя при сохранении закрывается даже если             (ИСПРАВИЛ, надеюсь)
-  запрос на сервер завершился ошибкой.
-  Для этого нужно перенести запрос к серверу в обработчик formEdit.addEventListener("submit", () => {
-  и в updateUserInfo передавать именно данные полученные от сервера, либо передавать в updateUserInfo
-  колбек который будет закрывать попапа после сохранения данных пользователя
-
-  Можно лучше:
-  - проверка ответа сервера и преобразование из json
-    дублируется во всех методах класса Api, лучше вынести в отдельный метод
-*/
-
-/*
-    Критические замечания исправлены, но ещё надо исправить:
-    - при каждой отправке формы происходит навешивание обработчика на кнопку, это лишнее                (ИСПРАВИЛ)
-    там нужно просто вызывать метод close для закрытия попапа
-*/

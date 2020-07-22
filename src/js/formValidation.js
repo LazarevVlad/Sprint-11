@@ -1,4 +1,4 @@
-class FormValidator {
+export default class FormValidator {
   constructor(form) {
     this.form = form;
     this.button = this.form.querySelector("button");
@@ -53,7 +53,6 @@ class FormValidator {
       const inputs = this.form.querySelectorAll("input");
       let isValid = true;
       inputs.forEach((input) => {
-        console.log(input);
         if (!this.checkInputValidity(input)) {
           isValid = false;
         }
